@@ -8542,6 +8542,11 @@ pluralize@^1.2.1:
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-1.2.1.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
   integrity sha1-0aIUg/0iu0HlihL6NCGCMUCJfEU=
 
+pngjs@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-6.0.0.tgz#ca9e5d2aa48db0228a52c419c3308e87720da821"
+  integrity sha512-TRzzuFRRmEoSW/p1KVAmiOgPco2Irlah+bGFCeNfJXxxYGwSw7YwAOAcd7X28K/m5bjBWKsC29KyoMfHbypayg==
+
 pop-iterate@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/pop-iterate/-/pop-iterate-1.0.1.tgz#ceacfdab4abf353d7a0f2aaa2c1fc7b3f9413ba3"
@@ -9639,6 +9644,13 @@ schema-utils@^3.0.0:
     "@types/json-schema" "^7.0.6"
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
+
+sdds@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/sdds/-/sdds-0.0.2.tgz#44e6b15f6ee70b5e3f2d7573e66b40534737f150"
+  integrity sha512-XgT4p6A5JzsshVjvoIRU29OAuR1B8mcen+nJebGt/zwkBAKdyNKQQhtKRMv0OzL2SSncTZsOun4UAx7c73Lrqw==
+  dependencies:
+    pngjs "^6.0.0"
 
 semver-compare@^1.0.0:
   version "1.0.0"
