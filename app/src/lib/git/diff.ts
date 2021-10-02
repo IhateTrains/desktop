@@ -27,7 +27,7 @@ import { DiffParser } from '../diff-parser'
 import { getOldPathOrDefault } from '../get-old-path'
 import { getCaptures } from '../helpers/regex'
 
-import sdds from 'sdds'
+const convertDDSToPNG = require('../helpers/dds')
 
 /**
  * V8 has a limit on the size of string it can create (~256MB), and unless we want to
@@ -419,8 +419,7 @@ export async function getBlobImage(
   const extension = Path.extname(path)
   let contents = await getBlobContents(repository, commitish, path)
   if (extension === '.dds') {
-    // convert .dds to .png
-    contents = sdds(contents)
+    contents = convertDDSToPNG(contents)
   }
   return new Image(
     contents.toString('base64'),
@@ -444,13 +443,13 @@ export async function getWorkingDirectoryImage(
   let contents = await fileSystem.readFile(
     Path.join(repository.path, file.path)
   )
-  if (Path.extname(file.path) === '.dds') {
-    // convert .dds to .png
-    contents = sdds(contents)
+  const extension = Path.extname(file.path)
+  if (extension === '.dds') {
+    contents = convertDDSToPNG(contents)
   }
   return new Image(
     contents.toString('base64'),
-    getMediaType(Path.extname(file.path)),
+    getMediaType(extension),
     contents.length
   )
 }

@@ -66,6 +66,9 @@ copyDependencies()
 console.log('Packaging emoji…')
 copyEmoji()
 
+console.log('Copying shaders…')
+copyPreviewDDSShaders()
+
 console.log('Copying static resources…')
 copyStaticResources()
 
@@ -242,6 +245,19 @@ function copyEmoji() {
   const emojiJSON = path.join(projectRoot, 'gemoji', 'db', 'emoji.json')
   const emojiJSONDestination = path.join(outRoot, 'emoji.json')
   removeAndCopy(emojiJSON, emojiJSONDestination)
+}
+
+/* Copy shaders for preview-dds */
+function copyPreviewDDSShaders() {
+  const source = path.join(
+    projectRoot,
+    'node_modules',
+    'preview-dds',
+    'lib',
+    'shader'
+  )
+  const destination = path.join(outRoot, 'shader')
+  removeAndCopy(source, destination)
 }
 
 function copyStaticResources() {
